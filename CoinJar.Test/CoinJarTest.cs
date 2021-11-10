@@ -3,40 +3,34 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CoinJar.Test
 {
+
     [TestClass]
     public class CoinJarTest
     {
         [TestMethod]
-        public void AddCoin_CoinOnjectTwoDecimalNumumbers_ReturnVoid()
+        public void AddCoin_CoinTwoDecimalNumumbers_ReturnVoid()
         {
-            //    new Coin(0.01m, 0.0146m),
-            //    new Coin(0.05m, 0.0233m),
-            //    new Coin(0.10m, 0.0115m),
-            //    new Coin(0.25m, 0.0274m),
-            //    new Coin(0.50m, 0.0535m),
-            //    new Coin(1.00m, 0.0373m)
-
-
             //Arrange
-            Coin coin = new Coin();
+            Coin coin;
             CoinJar coinJar = new CoinJar();
-            var ammout = 0.01m;
-            var expectedVolume = 0.0146m;
+            coin = new Coin
+            {
+                Amount = 0.25m,
+                Volume = 0.0274m
+            };
 
             //Act
-            var actual = coin.GetCoinByAmount(ammout);
-            coinJar.AddCoin(actual);
+            coinJar.AddCoin(coin);
 
             //Assert
-            Assert.AreEqual(expectedVolume, actual.Volume);
-
+            
         }
         [TestMethod]
         public void GetTotalAmount_NoParameters_ReturndecimalTotal()
         {
 
             CoinJar coinJar = new CoinJar();
-            var expectedTotal = 0.01m;
+            var expectedTotal = 0.00m;
 
             var actual = coinJar.GetTotalAmount();
 

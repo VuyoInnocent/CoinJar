@@ -15,7 +15,7 @@ namespace CoinJar
 
         //Jar properties
         decimal TotalVolume { get; set; }
-        decimal UsedVolune { get; set; }
+        decimal UsedVolume { get; set; }
         decimal CoinsTotalAmount { get; set; }
     }
 }

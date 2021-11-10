@@ -46,10 +46,8 @@
   <ItemGroup>
     <Compile Include="Coin.cs" />
     <Compile Include="CoinJar.cs" />
-    <Compile Include="UsCoinage.cs" />
     <Compile Include="ICoin.cs" />
     <Compile Include="ICoinJar.cs" />
-    <Compile Include="LatestUsCoinage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
