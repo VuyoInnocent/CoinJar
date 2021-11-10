@@ -10,53 +10,51 @@ namespace CoinJar
     {
         private List<Coin> _coins;
 
-        public decimal TotalVolume { get; set; }
-        public decimal UsedVolume { get; set; }
-        public decimal CoinsTotalAmount { get; set; }
+        decimal usedVolume = 0m;
+        decimal totalVolume = 42m;
+        decimal coinsTotalAmount = 0m;
 
         public CoinJar()
         {
             _coins = new List<Coin>();
-
-            TotalVolume = 42m;
-            UsedVolume = 0m;
-            CoinsTotalAmount = 0.00m;
         }
 
         public void AddCoin(ICoin coin)
         {
+            
+
             if (coin == null)
             {
                 Console.WriteLine("Coin Jar is null");
             }
-            if (coin.Volume + UsedVolume > TotalVolume)
+            if (coin.Volume + usedVolume > totalVolume)
             {
                 Console.WriteLine("CoinJar is full, you cannot insert more Coins");
             }
 
-            if (coin != null && coin.Volume < TotalVolume)
+            if (coin != null && coin.Volume < totalVolume)
             {
                 _coins.Add((Coin)coin);
 
-                CoinsTotalAmount += coin.Amount;
-                UsedVolume += coin.Volume;
+                coinsTotalAmount += coin.Amount;
+                usedVolume += coin.Volume;
 
                 Console.WriteLine($"Coin {coin.Amount} added in the Coin Jar!");
-                Console.WriteLine($"used voume is:  {UsedVolume} of {TotalVolume} CoinJar volume");
+                Console.WriteLine($"used voume is:  {usedVolume} of {totalVolume} CoinJar volume");
             }
         }
 
         public decimal GetTotalAmount()
         {
-            return CoinsTotalAmount;
+            return coinsTotalAmount;
         }
 
         public void Reset()
         {
             _coins = new List<Coin>();
-            UsedVolume = 0m;
-            CoinsTotalAmount = 0.00m;
-            Console.WriteLine($"No more money in the Jar :(. Balance is:  R{CoinsTotalAmount}");
+            usedVolume = 0m;
+            coinsTotalAmount = 0.00m;
+            Console.WriteLine($"No more money in the Jar :(. Balance is:  $ {coinsTotalAmount}");
         }
     }
 }
