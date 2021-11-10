@@ -10,6 +10,5 @@ namespace CoinJar
     {
         decimal Amount { get; set; }
         decimal Volume { get; set; }
-        public abstract Coin GetCoinByAmount(decimal amount);
     }
 }

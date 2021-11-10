@@ -10,39 +10,71 @@ namespace CoinJar
     {
         static void Main(string[] args)
         {
-            Coin coin = new Coin();
+            Coin coin;
             CoinJar jar = new CoinJar();
-            for (int i = 0; i < 2; i++)
-            {
 
-                jar.AddCoin(coin.GetCoinByAmount(0.01m));
+            //Adding all the US latest coinages twice using for loop 
+            for (int i = 0; i < 2; i++)
+            {
+                coin = new Coin
+                {
+                    Amount = 0.01m,
+                    Volume = 0.0146m
+                };
+                jar.AddCoin(coin);
             }
             for (int i = 0; i < 2; i++)
             {
-                jar.AddCoin(coin.GetCoinByAmount(0.05m));
+                coin = new Coin
+                {
+                    Amount = 0.05m,
+                    Volume = 0.0233m
+                };
+                jar.AddCoin(coin);
             }
             for (int i = 0; i < 2; i++)
             {
-                jar.AddCoin(coin.GetCoinByAmount(0.25m));
+                coin = new Coin
+                {
+                    Amount = 0.10m,
+                    Volume = 0.0115m
+                };
+                jar.AddCoin(coin);
             }
 
             for (int i = 0; i < 2; i++)
             {
-                jar.AddCoin(coin.GetCoinByAmount(0.10m));
+                coin = new Coin
+                {
+                    Amount = 0.25m,
+                    Volume = 0.0274m
+                };
+                jar.AddCoin(coin);
             }
-           
-            for (int i = 0; i < 2; i++)
-            {
-                jar.AddCoin(coin.GetCoinByAmount(0.50m));
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                jar.AddCoin(coin.GetCoinByAmount(1.00m));
-            }
-           
-           var coinsTotal = jar.GetTotalAmount();
 
-            Console.WriteLine($"Total amount of coins accumulated in the Jar:- {coinsTotal}");
+            for (int i = 0; i < 2; i++)
+            {
+                coin = new Coin
+                {
+                    Amount = 0.50m,
+                    Volume = 0.0535m
+                };
+                jar.AddCoin(coin);
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                coin = new Coin
+                {
+                    Amount = 1.00m,
+                    Volume = 0.0373m
+                };
+                jar.AddCoin(coin);
+            }
+
+            var coinsTotalAmount = jar.GetTotalAmount();
+
+            Console.WriteLine($"Total amount of coins accumulated in the Jar:- {coinsTotalAmount}");
+
             jar.Reset();
 
         }
